@@ -1,4 +1,5 @@
 //https://lightoj.com/problem/toll-management
+//directed, reverse graph before 2nd dijkstra
 
 #include <bits/stdc++.h>
 using namespace std;
