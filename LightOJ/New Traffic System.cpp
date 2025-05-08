@@ -10,7 +10,12 @@ typedef long long ll;
 const int N = 1e4+12;
 const ll mx = 1e17;
 
-vector<vll> g[N];
+struct hella
+{
+    ll v, w, typ;
+};
+
+vector<hella> g[N];
 ll dist[11][N];
 
 void dijkstra(ll src, ll n, ll d) {
@@ -28,7 +33,7 @@ void dijkstra(ll src, ll n, ll d) {
         if(curD > dist[ct][u]) continue;
 
         for(auto edge : g[u]) {
-           ll v = edge[0], weight = edge[1], typ = edge[2];
+           ll v = edge.v, weight = edge.w, typ = edge.typ;
            if(typ + ct <= d && dist[typ + ct][v] > dist[ct][u] + weight) {
                 dist[typ + ct][v] = dist[ct][u] + weight;
                 pq.push({dist[typ + ct][v], typ+ct, v});
